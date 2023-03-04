@@ -1,25 +1,16 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import Counter1 from "./Counter1";
+import Counter2 from "./Counter2";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1 style={{textAlign:"center"}}>Higher Order Functions</h1>
+      <div style={{display: "flex", justifyContent: "center", padding:"5rem"}}>
+      <Counter1 />
+      <Counter2 />
+      </div>
     </div>
   );
-}
-
+};
 export default App;
