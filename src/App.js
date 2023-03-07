@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
 import "./App.css";
 import ListItems from "./ListItems";
 
@@ -15,10 +15,10 @@ const App = () => {
   const themeHandler = () => {
     setTheme((prev)=> !prev);
   }
-  const getData = () => {
+  const getData = useCallback(() => {
     console.log("function called"); 
     return [value, value+1, value+2]; 
-  }
+  }); 
   return (
     <div className={theme ? "bg-dark" : "bg-light"}>
       <input value = {value} onChange={inputHandler} />
