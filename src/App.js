@@ -18,7 +18,7 @@ const App = () => {
   const getData = useCallback(() => {
     console.log("function called"); 
     return [value, value+1, value+2]; 
-  }); 
+  }, [value]); 
   return (
     <div className={theme ? "bg-dark" : "bg-light"}>
       <input value = {value} onChange={inputHandler} />
