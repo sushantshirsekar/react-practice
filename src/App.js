@@ -1,6 +1,5 @@
-import React, { useCallback, useState } from "react";
+import React, {  useMemo, useState } from "react";
 import "./App.css";
-import ListItems from "./ListItems";
 
 const App = () => {
   const [value, setValue] = useState(1); 
@@ -15,18 +14,24 @@ const App = () => {
   const themeHandler = () => {
     setTheme((prev)=> !prev);
   }
-  const getData = useCallback(() => {
-    console.log("function called"); 
-    return [value, value+1, value+2]; 
-  }, [value]); 
+  const doubleValue = useMemo(()=> {
+    double(value)
+  },[value]); 
   return (
     <div className={theme ? "bg-dark" : "bg-light"}>
       <input value = {value} onChange={inputHandler} />
       <p>{value}</p>
       <button onClick={incrementHandler}>+</button>
       <button onClick={themeHandler} >Toggle Theme</button>
-      <ListItems getData = {getData}/>
+      <p>{doubleValue}</p>  
     </div>
   );
 };
+
+function double(num) {
+  for(let i = 0 ; i < 100000000; i++){
+
+  }
+  return num*2; 
+}
 export default App;
